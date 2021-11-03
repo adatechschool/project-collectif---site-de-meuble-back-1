@@ -9,6 +9,9 @@ Projet création d'un site de e-commerce
 Durée de travail : 06 jours
 -> Particularité : en milieu de parcours, inversion des équipes
 
-Décisions tech :
-- base de données créée via MySQL
-- utilisation de node JS via Express
+Précisions tech :
+- à insérer par le terminal dans le repo cloné sur votre ordinateur :
+* npm install express --save
+* npm install --save -dev mysql
+
+BDD hébergée sur alswaysdata.com
