@@ -1,8 +1,9 @@
 # Journal du projet
 
-DAY 1 - 02 NOV
+<b>DAY 1 - 02 NOV</b>
 
 * Création de l'équipe BACK : 5 personnes
+
 Après concertation, décisions :
 - d'utiliser JS, plutôt que Python où ne sommes pas encore très à l'aise,
 - d'utiliser EXPRESS, qui semble plus accessible (visualiation d'exemples) et qui est bien documenté sur Internet
@@ -11,9 +12,15 @@ Après concertation, décisions :
 
 * Installation de l'environnement EXPRESS
 
-* Test de correspondance avec les bases de données
+* Test de connexion avec une base de données stockée en local
 
-DAY 2 - 03 NOV
+<b>DAY 2 - 03 NOV</b>
 
-DAY 3 - 04 NOV
+* Possibilité d'héberger la base de données sur un serveur - tests et ressources par 2 personnes
+
+* Ressources sur Express par 2 personnes
+
+* Ressources sur GitHub pour ajouter un gitignore alors que le repo est déjà créé + création nouvelle branche "dev"
+
+<b>DAY 3 - 04 NOV</b>
 
