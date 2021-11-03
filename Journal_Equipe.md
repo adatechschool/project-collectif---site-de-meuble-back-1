@@ -22,5 +22,7 @@ Après concertation, décisions :
 
 * Ressources sur GitHub pour ajouter un gitignore alors que le repo est déjà créé + création nouvelle branche "dev"
 
+* Alors que la BDD est bien accessible, remplissage avec quelques données // photos également hébergées en cloud
+
 <b>DAY 3 - 04 NOV</b>
 
