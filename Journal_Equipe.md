@@ -26,3 +26,7 @@ Après concertation, décisions :
 
 <b>DAY 3 - 04 NOV</b>
 
+* Mise en place d'une architecture de requetes : 
+<br> -> page server.js qui regroupe les routes
+<br> -> page produit qui regroupe les requetes liées aux produits
+
