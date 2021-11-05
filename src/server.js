@@ -1,11 +1,10 @@
 //connexion package d'utilisation
 const express = require("express");
-const bodyParser = require("body-parser");
 const mysql = require("mysql");
+const DataBaseController = require("./database");
 
 //routage entre les différents fichiers de requêtes
 const produit = require("./produit");
-
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -16,16 +15,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // MySQL
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "mysql-adatech.alwaysdata.net",
-  user: "adatech",
-  password: "a0a19#a0a19",
-  database: "adatech_bdd",
+const db = new DataBaseController();
+
+app.get("/produit", (req, res) => {
+  produit.list (req, res, db)
+});
+app.get("/produit/:id", (req, res) => {
+  produit.details (req, res, db)
 });
 
-app.get("/produit", produit.list);
-app.get("/produit/:id", produit.details);
+// app.post("/identification", identification.login);
+// app.post("/identification/signin", identification.signin);
+
 /*
 // Delete a beer
 app.delete("/:id", (req, res) => {
@@ -97,5 +98,6 @@ app.put("", (req, res) => {
 */
 
 // Listen on enviroment port or 5000
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
 module.exports = app;
