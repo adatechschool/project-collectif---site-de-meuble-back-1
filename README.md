@@ -12,9 +12,9 @@ Durée de travail : 06 jours
 Précisions tech :
 - à insérer par le terminal dans le repo cloné sur votre ordinateur :
 npm install node express mysql nodemon bcrypt --save -dev
-
-Bien penser à taper npm start dans le terminal pour lancer le serveur. 
+- bien penser à taper npm start dans le terminal pour lancer le serveur. 
 Nodemon s'occupera des relances à chaque changement de code.
+- si vous rencontrez "body-parser" dans certains tutos : pas besoin de l'installer, il est déjà intégré dans la dernière version d'Express
 
 BDD hébergée sur alwaysdata.com : https://phpmyadmin.alwaysdata.com/phpmyadmin/index.php?lang=fr
 <br>-> indication d'accès dans server.js
