@@ -11,7 +11,7 @@ Durée de travail : 06 jours
 
 Précisions tech :
 - à insérer par le terminal dans le repo cloné sur votre ordinateur :
-* npm install express --save
-* npm install --save -dev mysql
+* npm install node express mysql nodemon bcrypt --save -dev
 
-BDD hébergée sur alswaysdata.com
+BDD hébergée sur alwaysdata.com : https://phpmyadmin.alwaysdata.com/phpmyadmin/index.php?lang=fr
+<br>-> indication d'accès dans server.js
