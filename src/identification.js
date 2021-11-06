@@ -1,36 +1,14 @@
 //connexion package d'utilisation
 const express = require("express");
-const mysql = require("mysql");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-//routage entre les différents fichiers de requêtes
-const identification = require("./identification");
-
-const app = express();
-const port = process.env.PORT || 4000;
-
-// parse application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(express.json());
-
-// MySQL
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "mysql-adatech.alwaysdata.net",
-  user: "adatech",
-  password: "a0a19#a0a19",
-  database: "adatech_bdd",
-});
-
-exports.login = function (req, res) {
-    pool.getConnection ((err, connection) => {
+exports.login = function (req, res, db) {
+    db.identificationLogin(login) {
         app.post('/user', function (req, res) {    
-            pool.Utilisateur.findOne({          
+            db.Utilisateur.findOne({          
                 where: {              
-                    mail: req.body.email                 
+                    mail: req.body.mail                 
                 }     
             }).then(function (user) {         
                 if (!user) {            
