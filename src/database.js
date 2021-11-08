@@ -47,5 +47,46 @@ module.exports = class DataBaseController {
         })
     }
     
+    identificationLogin (mail, password, callback) {
+        this.pool.getConnection ((err, connection) => {
+            if (err) throw err;
+            connection.query(
+                "SELECT * FROM Utilisateur WHERE mail, mdp LIKE",[mail],[password],
+            (err, rows) => {
+                connection.release(); 
+                if (!err) {
+                    callback(rows);
+                } else {
+                    console.log(err);
+                }
+            })  
+        })
+    }
+
+    //Code trouvé sur le net à tester pour le login avec cryptage du mdp
+
+    // exports.login = function (req, res, db) {
+    //     db.identificationLogin(login) {
+    //         app.post('/user', function (req, res) {    
+    //             db.Utilisateur.findOne({          
+    //                 where: {              
+    //                     mail: req.body.mail                 
+    //                 }     
+    //             }).then(function (user) {         
+    //                 if (!user) {            
+    //                     res.redirect('/');         
+    //                 } else {bcrypt.compare(req.body.password, user.mdp, function (err, result) {        
+    //                     if (result == true) {            
+    //                         res.redirect('/produit');        
+    //                     } else {         
+    //                         res.send('Incorrect password');         
+    //                         res.redirect('/');        
+    //                     }      
+    //                 });     
+    //             }  
+    //         });
+    //         });
+    //     });
+    // }
 }
 

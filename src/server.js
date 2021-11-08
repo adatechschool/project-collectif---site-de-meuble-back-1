@@ -17,85 +17,24 @@ app.use(express.json());
 // MySQL
 const db = new DataBaseController();
 
+//récuperer la liste des produits
 app.get("/produit", (req, res) => {
   produit.list (req, res, db)
 });
+
+//récupérer infos sur un produit
 app.get("/produit/:id", (req, res) => {
   produit.details (req, res, db)
 });
 
-// app.post("/identification", identification.login);
+//comparer mail et mdp utilisateur à la bdd
+app.post("/identification", (req, res) => {
+  identification.login (req, res, db)
+});
+
+//ajouter utilisateur à la bdd
 // app.post("/identification/signin", identification.signin);
 
-/*
-// Delete a beer
-app.delete("/:id", (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    connection.query(
-      "DELETE FROM beers WHERE id = ?",
-      [req.params.id],
-      (err, rows) => {
-        connection.release(); // return the connection to pool
-        if (!err) {
-          res.send(
-            `Beer with the record ID ${[req.params.id]} has been removed.`
-          );
-        } else {
-          console.log(err);
-        }
-
-        console.log("The data from beer table are: \n", rows);
-      }
-    );
-  });
-
-});
-
-// Add beer
-app.post("", (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-
-    const params = req.body;
-    connection.query("INSERT INTO beers SET ?", params, (err, rows) => {
-      connection.release(); // return the connection to pool
-      if (!err) {
-        res.send(`Beer with the record ID  has been added.`);
-      } else {
-        console.log(err);
-      }
-
-      console.log("The data from beer table are:11 \n", rows);
-    });
-  });
-});
-
-app.put("", (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    console.log(`connected as id ${connection.threadId}`);
-
-    const { id, name, tagline, description, image } = req.body;
-
-    connection.query(
-      "UPDATE beers SET name = ?, tagline = ?, description = ?, image = ? WHERE id = ?",
-      [name, tagline, description, image, id],
-      (err, rows) => {
-        connection.release(); // return the connection to pool
-
-        if (!err) {
-          res.send(`Beer with the name: ${name} has been added.`);
-        } else {
-          console.log(err);
-        }
-      }
-    );
-
-    console.log(req.body);
-  });
-});
-*/
 
 // Listen on enviroment port or 5000
 
