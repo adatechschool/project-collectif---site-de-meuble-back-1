@@ -10,5 +10,9 @@ exports.login = function (req, res, db){
     })
 }
 
-
+exports.signup = function (req, res, db){
+    db.registrationUser(req.body.registrationUser,(connexion) =>{
+        res.send(connexion);
+    })
+}
 

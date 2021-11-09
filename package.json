@@ -4,26 +4,27 @@
     "description": "Ce dépôt Git vous sert de base de travail pour les projets collectifs : en cliquant sur le lien fourni par l'encadrante, celui-ci sera automatiquement copié dans la dépôt que vous créerez pour ce projet.",
     "main": "src/server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "nodemon src/server.js"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon src/server.js"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/adatechschool/project-collectif---site-de-meuble-back-1.git"
+        "type": "git",
+        "url": "git+https://github.com/adatechschool/project-collectif---site-de-meuble-back-1.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/adatechschool/project-collectif---site-de-meuble-back-1/issues"
+        "url": "https://github.com/adatechschool/project-collectif---site-de-meuble-back-1/issues"
     },
     "homepage": "https://github.com/adatechschool/project-collectif---site-de-meuble-back-1#readme",
     "dependencies": {
-      "bcrypt": "^5.0.1",
-      "express": "^4.17.1",
-      "mysql": "^2.18.1",
-      "mysql-import": "^5.0.21",
-      "node": "^17.0.1",
-      "nodemon": "^2.0.14"
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "mysql": "^2.18.1",
+        "mysql-import": "^5.0.21",
+        "node": "^17.0.1",
+        "nodemon": "^2.0.14"
     }
-  }
+}

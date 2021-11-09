@@ -1,15 +1,20 @@
 //connexion package d'utilisation
 const express = require("express");
 const mysql = require("mysql");
+const bodyParser = require("body-parser");
 const DataBaseController = require("./database");
+const router = express.Router();
+
 
 //routage entre les différents fichiers de requêtes
 const produit = require("./produit");
+const identification = require("./identification");
 const app = express();
 const port = process.env.PORT || 4000;
 
 // parse application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // parse application/json
 app.use(express.json());
@@ -43,7 +48,16 @@ app.post("/identification", (req, res) => {
 });
 
 //ajouter utilisateur à la bdd
-// app.post("/identification/signin", identification.signin);
+app.post("/identification/signup", (req, res,next) => {
+  console.log(req.body)
+  identification.signup (req, res, db)
+  res.send("fini")
+});
+
+
+
+
+
 
 
 // Listen on enviroment port or 5000
