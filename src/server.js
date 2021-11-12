@@ -4,11 +4,13 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const DataBaseController = require("./database");
 const router = express.Router();
+const validator = require("express-validator");
 
 
 //routage entre les différents fichiers de requêtes
 const produit = require("./produit");
 const identification = require("./identification");
+const user = require("./user")
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -43,18 +45,35 @@ app.get("/produit/:id", (req, res) => {
 });
 
 //comparer mail et mdp utilisateur à la bdd
-app.post("/identification", (req, res) => {
+app.get("/identification", (req, res) => {
   identification.login (req, res, db)
+  res.send("blabla")
+});
+
+app.get("/user", (req, res) => {
+  user.user (req, res, db)
+  
 });
 
 //ajouter utilisateur à la bdd
-app.post("/identification/signup", (req, res,next) => {
+app.get("/identification/signup", (req, res,next) => {
   console.log(req.body)
   identification.signup (req, res, db)
-  res.send("fini")
+  res.send({identification})
 });
 
-
+app.post('http://localhost:3000/Inscription', (req, res) => {
+  const nom = req.body.nom
+  const prenom = req.body.prenom
+  const mail = req.body.mail
+  const mdp = req.body.mdp
+  const adresse = req.body.adresse
+  const codepostal = req.body.codepostal
+  const ville = req.body.ville
+  const telephone = req.body.telephone
+  const Statut_idstatut = 2
+  res.end()
+});
 
 
 

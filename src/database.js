@@ -46,6 +46,25 @@ module.exports = class DataBaseController {
             );
         })
     }
+
+    userList (callback) {
+        this.pool.getConnection ((err, connection) => {
+            if (err) throw err;
+            connection.query(
+                "SELECT idClient, nom, prenom, mail, mdp, adresse, codepostal, ville, telephone, Statut_idstatut FROM Utilisateur", 
+                (err, rows) => {
+                    connection.release(); // return the connection to pool
+                    if (!err) {
+                        callback(rows);
+                    } else {
+                        console.log(err);
+                    }
+                    // if(err) throw err
+                    console.log("The data from produit table are: \n", rows);
+                }
+            );
+        });
+    }
     
     identificationLogin (mail, password, callback) {
         this.pool.getConnection ((err, connection) => {
@@ -90,10 +109,10 @@ module.exports = class DataBaseController {
     // }
 
     registrationUser () {
-        this.pool.getConnection ((err, connection) => {
+        this.pool.getConnection ((idClient, nom, prenom, mail, mdp, adresse, codepostal, ville, telephone, Statut_idstatut, err, connection) => {
             if (err) throw err;
             connection.query(
-            "INSERT INTO Utilisateur (idClient, nom, prenom, mail, mdp, adresse, codepostal, ville, telephone, Statut_idstatut) VALUES  (Null, 'dupond', 'nono', 'nono@popo.com', '1234', '15 hgeriuhgkf','92110', 'paris', '0645567857', 2);", 
+            "INSERT INTO Utilisateur (Null, nom, prenom, mail, mdp, adresse, codepostal, ville, telephone, Statut_idstatut) VALUES" (Null, nom, prenom, mail, mdp, adresse, codepostal, ville, telephone, 2),
             () => {
                 connection.release(); // return the connection to pool
                 
